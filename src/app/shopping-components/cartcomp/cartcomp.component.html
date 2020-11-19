@@ -1,0 +1,37 @@
+
+<h2>Purchase Items, Manage Your Cart</h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+<form [formGroup]="form1" *ngIf="form1">
+    <h1>Grand Total: ${{total}}</h1>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</form>
+        
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th> 
+    </tr>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td><img src='{{ product.image }}' width="150" height="150"></td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td> 
+                <button type="button" (click)="delete(product._id)">Remove From Cart</button>
+            </td>
+
+        </tr>
+    </tbody>
+    <button type="button" (click)="purchase(products)">Checkout</button>
+</table>
+
+<div *ngIf="products.length === 0">
+    <p>No items are in your cart. Go to the store to find items.</p>
+</div>
+
+

@@ -1,0 +1,32 @@
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+<h3>Add a New Product: </h3>
+<p>Fill out the form below to add a new product to the store</p>
+
+<form [formGroup]="form1" (ngSubmit)="newProduct()">
+    <div>
+        <label>Name: </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div>
+        <label>Type: </label>
+        <input type="text" id="type" formControlName="type">
+    </div>
+
+    <div>
+        <label>Image URL (if desired): </label>
+        <input type="text" id="image" formControlName="image">
+    </div>
+
+    <div>
+        <label>Price: </label>
+        <input type="number" id="price" formControlName="price">
+    </div>
+
+    <div>
+        <label>Quantity</label>
+        <input type="number" id="quantity" formControlName="quantity">
+    </div>
+    <button type="button" (click)="newProduct()">Add</button>
+</form>

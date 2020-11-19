@@ -1,0 +1,78 @@
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<h3>Add a New Account:</h3>
+<p>Fill out the form with a username and password and choose what kind of account to make.<br>
+
+<form [formGroup]="userForm1" (ngSubmit)="createUser()">
+    <div>
+        <label>Username: </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+   
+    <div>
+        <label>Password: </label>
+        <input type="text" id="pw" formControlName="pw">
+    </div>
+
+    <div>
+          <input type="radio" value="admin" id="admin" formControlName="role">
+          <label>Set as Admin Account</label>
+          <input type="radio" value="user" id="user" formControlName="role">
+          <label>Set as Regular Account</label>
+    </div>
+    
+    <div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </div>    
+</form>
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<h3>Edit an Account</h3>
+
+
+<form [formGroup]="userForm" (ngSubmit)="updateUser()">
+    <div>
+        <label>Username: </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div>
+        <label>Password: </label>
+        <input type="text" id="pw" formControlName="pw">
+    </div>
+
+    <div>
+        <input type="radio" value="admin" id="admin" formControlName="role">
+        <label>Set as Admin Account</label>
+        <input type="radio" value="user" id="user" formControlName="role">
+        <label>Set as Regular Account</label>
+    </div>
+    <button type="button" (click)="updateUser()">Update</button>
+</form>
+
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+<h3>Manage Current Users:</h3>
+<p>Currently shows the password for editing testing/demo purposes. <br>Talk about a massive security risk haha.</p>
+
+<table border="1">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Account Type</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.pw}}</td>
+            <td>{{user.role}}</td>
+
+            <td>
+            <button type="button" (click)="delete(user._id)">Remove</button>
+            <button type="button" (click)="fillUpdateForm(user)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

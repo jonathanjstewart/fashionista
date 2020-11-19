@@ -1,0 +1,30 @@
+<ul>
+    <li>
+        <a href="#home" routerLink="/home">Home</a>
+    </li>
+    <li>
+        <a href="#register" class="active" routerLink="/register">Register</a>
+    </li>
+    <li>
+        <a href="#login" routerLink="/login">Log-In</a>
+    </li>
+</ul>
+
+
+
+<h1>Registration Form</h1>
+
+
+<form [formGroup]="form1" (ngSubmit)="register()">
+    <div>
+        <label><b>Username: </b></label><br>
+        <input type="text" placeholder="Enter Username" id="name" formControlName="name">
+   </div>
+
+    <div>
+         <label class="up"><b>Password: </b></label><br>
+         <input type="text" placeholder="Enter Password" id="pw" formControlName="pw">
+     </div>
+     
+     <button type="submit">Register</button>
+</form>

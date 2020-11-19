@@ -1,0 +1,66 @@
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+<h3>Edit a Product: </h3>
+<p>Fill out the form with the data of the product you want to update.<br>
+   Otherwise, click on the "update" button next to the product to autofill.</p>
+
+<form [formGroup]="form1" *ngIf="form1">    
+    <div>
+        <label>Name: </label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div>
+        <label>Type: </label>
+        <input type="text" id="type" formControlName="type">
+    </div>
+
+    <div>
+        <label>Image URL (if desired): </label>
+        <input type="text" id="image" formControlName="image">
+    </div>
+
+    <div>
+        <label>Price: </label>
+        <input type="number" id="price" formControlName="price">
+    </div>
+
+    <div>
+        <label>Quantity</label>
+        <input type="number" id="quantity" formControlName="quantity">
+    </div>
+    <button type="button" (click)="prodUP()">Update</button>
+</form>
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<h3>Manage Current Products:</h3>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th> 
+    </tr>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.type}}</td>
+            <td><img src='{{ product.image }}' width="150" height="150"></td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            
+            <td> 
+                <button type="button" (click)="delete(product._id)">Remove</button>
+                <button type="button" (click)="fillUpdateForm(product)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="products.length === 0">
+    <p>There are no products in the store, add some items using the above field.</p>
+</div>
+
+

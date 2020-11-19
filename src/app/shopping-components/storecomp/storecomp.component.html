@@ -1,0 +1,40 @@
+<h2>Add Items to Cart</h2>
+
+<form [formGroup]="form1" (ngSubmit)="prodUP();" *ngIf="form1">
+    <div>
+        <label>How many do you want to purhcase: </label>
+        <div>
+            <input type="number" min="0" id="quantity" formControlName="quantity">
+            <button type="button" (click)="addToCart()">Confirm</button>
+        </div>
+    </div>      
+                    
+</form>
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th> 
+    </tr> 
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{ product.type }}</td>
+            <td><img src='{{ product.image }}' width="150" height="150"></td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            
+            <td> 
+                <button type="button" (click)="confirmCart(product)">Add To Cart</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="products.length === 0">
+    <p>The store has sold out. Please wait for more stock to come in.</p>
+</div>

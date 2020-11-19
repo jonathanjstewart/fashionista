@@ -1,0 +1,33 @@
+<ul>
+    <li>
+        <a href="#home" routerLink="/home">Home</a>
+    </li>
+    <li>
+        <a href="#register" routerLink="/register">Register</a>
+    </li>
+    <li>
+        <a href="#login" class="active" routerLink="/login">Log-In</a>
+    </li>
+</ul>
+
+
+
+ <h1>Login Form</h1>
+ <!-- <div *ngIf="error then alertfunc(); else false">;
+ </div> -->
+
+
+ <form [formGroup]="form1" (ngSubmit)="login()">
+     <div>
+         <label class="up"><b>Username: </b></label><br>
+         <input type="text" placeholder="Enter Username" id="name" formControlName="name">
+    </div>
+
+     <div>
+         <label class="up"><b>Password: </b></label><br>
+         <input type="text" placeholder="Enter Password" id="pw" formControlName="pw">
+     </div>
+     
+     <button type="submit">Login</button>
+ </form>
+
