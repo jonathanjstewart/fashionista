@@ -5,6 +5,8 @@ On running the application, navigate to http://localhost:4200/admin and from the
 
 ## Development server
 
+Before running both of the following commands, use `npm install` in their repsective directories
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 Within fashionista-server, run `npm run dev` to start the express server.
