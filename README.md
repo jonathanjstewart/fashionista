@@ -1,10 +1,13 @@
 # FashionistaAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Note:
+On running the application, navigate to http://localhost:4200/admin and from there you can create an admin account to login to the admin portal.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Within fashionista-server, run `npm run dev` to start the express server.
 
 ## Code scaffolding
 
